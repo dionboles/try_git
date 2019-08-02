@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .btnShodow{
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 0px 0px #888888;
+        padding: 1.5px;
+        margin-right: 10px;
+        margin-bottom: 15px;
+    }
+    .btnShodow:hover{
+        box-shadow: none;
+        cursor: pointer;
+    }
+    .btnShodow:focus{
+        border: 1px solid #ccc;
+        outline: none;
+    }
+    .box{
+        border: 1px solid #ccc;
+        width: 50%;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    .rowSection{
+        margin: 10px;
+    }
+</style>
+<body>
+    <main>
+        <section class="rowSection">
+            <button id="sayHello" class="btnShodow">
+                Create Rows saying Hello
+            </button>
+            <button id="sayGoodbye" class="btnShodow">
+                Create Rows saying Goodbye
+            </button>
+            <div id="rowArea">
+                
+            </div>
+            <script id="sayTemplate" type="text/template">
+                <div>
+                    {title}
+                </div>
+            </script>
+        </section>
+    </main>
+</body>
+<script> 
+ 
+document.addEventListener('click', (event) => {
+    if (event.target.tagName === "BUTTON"){
+        let listHtml = "";
+        let name = (event.target.id === "sayHello") ?  "Hello" :  "Goodbye";
+        const template = document.getElementById("sayTemplate");
+        // Get the contents of the template
+        const templateHtml = template.innerHTML;
+        // Final HTML variable as empty string
+        for (let index = 0; index < 5; index++) {
+            listHtml +=templateHtml.replace(/{title}/g,"<div class= 'box'>"+name+"</div>").trim()
+            }
+        document.getElementById("rowArea").innerHTML = listHtml ;
+    }
+})
+
+
+// document.querySelector("#sayHello,").addEventListener("click",()=>{
+//     let listHtml = "";
+//     const template = document.getElementById("template-list-item");
+//     // Get the contents of the template
+//     const templateHtml = template.innerHTML;
+//     // Final HTML variable as empty string
+//     const name = "Hello";
+//     for (let index = 0; index < 5; index++) {
+//          listHtml +=templateHtml.replace(/{title}/g,"<div class= 'box'>"+name+"</div>").trim()
+//         }
+        
+    
+//     document.getElementById("rowArea").innerHTML = listHtml ;
+// })
+
+
+// document.querySelector("#sayGoodbye").addEventListener("click",()=>{
+//     let listHtml = "";
+//     const template = document.getElementById("template-list-item");
+//     // Get the contents of the template
+//     const templateHtml = template.innerHTML;
+//     // Final HTML variable as empty string
+//     const name = "goodbye";
+//     for (let index = 0; index < 5; index++) {
+//          listHtml +=templateHtml.replace(/{title}/g,"<div class= 'box'>"+ name+"</div>").trim()
+//         }
+        
+    
+//     document.getElementById("rowArea").innerHTML = listHtml ;
+// })
+
+    /*
+    let dataObject = {
+        name : ""
+    };
+    let tempHtml = ""
+    let rowArea = document.querySelector("#rowArea");
+    document.querySelector("#sayHello").addEventListener("click",()=>{
+        dataObject.name = "Hello";
+        for (let index = 0; index < 5; index++) {
+             tempHtml +=rowArea.innerHTML.replace(/{title}/g,"<div class= 'box'>"+ dataObject.name+"</div>").trim()
+            
+        }
+        rowArea.innerHTML = tempHtml;
+       
+    })
+    document.querySelector("#sayGoodbye").addEventListener("click",()=>{
+        dataObject.name = "Goodbye";
+        for (let index = 0; index < 5; index++) {
+             tempHtml +=rowArea.innerHTML.replace(/{title}/g,"<div class= 'box'>"+ dataObject.name+"</div>").trim()
+            
+        }
+        rowArea.innerHTML = tempHtml;
+       
+    })
+    */
+</script>
+</html>
