@@ -17,6 +17,7 @@
         padding: 1.5px;
         margin-right: 10px;
         margin-bottom: 15px;
+        background-color: white;
     }
     .btnShodow:hover{
         box-shadow: none;
@@ -45,9 +46,7 @@
             <button id="sayGoodbye" class="btnShodow">
                 Create Rows saying Goodbye
             </button>
-            <div id="rowArea">
-                
-            </div>
+            <div id="rowArea"></div>
         </section>
     </main>
 </body>
@@ -56,71 +55,14 @@
  window.addEventListener("load",function(){
     document.addEventListener('click', function (event){
         if (event.target.tagName === "BUTTON"){
-            let listHtml = "";
-            let name = (event.target.id === "sayHello") ?  "Hello" :  "Goodbye";
-            for (let index = 0; index < 5; index++) {
+            var listHtml = "";
+            var name = (event.target.id === "sayHello") ?  "Hello" :  "Goodbye";
+            for (var index = 0; index < 5; index++) {
                 listHtml +="<div class= 'box'>"+name+"</div>".trim()
                 }
             document.getElementById("rowArea").innerHTML = listHtml ;
         }
     })
  })
-
-// document.querySelector("#sayHello,").addEventListener("click",()=>{
-//     let listHtml = "";
-//     const template = document.getElementById("template-list-item");
-//     // Get the contents of the template
-//     const templateHtml = template.innerHTML;
-//     // Final HTML variable as empty string
-//     const name = "Hello";
-//     for (let index = 0; index < 5; index++) {
-//          listHtml +=templateHtml.replace(/{title}/g,"<div class= 'box'>"+name+"</div>").trim()
-//         }
-        
-    
-//     document.getElementById("rowArea").innerHTML = listHtml ;
-// })
-
-
-// document.querySelector("#sayGoodbye").addEventListener("click",()=>{
-//     let listHtml = "";
-//     const template = document.getElementById("template-list-item");
-//     // Get the contents of the template
-//     const templateHtml = template.innerHTML;
-//     // Final HTML variable as empty string
-//     const name = "goodbye";
-//     for (let index = 0; index < 5; index++) {
-//          listHtml +=templateHtml.replace(/{title}/g,"<div class= 'box'>"+ name+"</div>").trim()
-//         }
-        
-    
-//     document.getElementById("rowArea").innerHTML = listHtml ;
-// })
-
-    /*
-    let dataObject = {
-        name : ""
-    };
-    let tempHtml = ""
-    let rowArea = document.querySelector("#rowArea");
-    document.querySelector("#sayHello").addEventListener("click",()=>{
-        dataObject.name = "Hello";
-        for (let index = 0; index < 5; index++) {
-             tempHtml +=rowArea.innerHTML.replace(/{title}/g,"<div class= 'box'>"+ dataObject.name+"</div>").trim()
-            
-        }
-        rowArea.innerHTML = tempHtml;
-       
-    })
-    document.querySelector("#sayGoodbye").addEventListener("click",()=>{
-        dataObject.name = "Goodbye";
-        for (let index = 0; index < 5; index++) {
-             tempHtml +=rowArea.innerHTML.replace(/{title}/g,"<div class= 'box'>"+ dataObject.name+"</div>").trim()
-            
-        }
-        rowArea.innerHTML = tempHtml;
-       
-    })
-    */
 </script>
 </html>
