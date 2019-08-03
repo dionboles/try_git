@@ -36,6 +36,30 @@
     .rowSection{
         margin: 10px;
     }
+    /* DESKTOP */
+    @media screen and (min-width: 1200px){
+        .box{
+            width: 50%;
+        }
+    }
+    /* TABLET */
+    @media  (min-width: 768px) and (max-width: 991.98px){
+        .box{
+            width: 60%;
+        }
+    }
+    /* SMALL DEVICE */
+    @media (min-width: 576px) and (max-width: 767.98px){
+        .box{
+            width: 70%;
+        }
+    }
+    /* EXTA SMALL DEVICE */
+    @media screen and (max-width: 575.98px){
+        .box{
+            width: 80%;
+        }
+    }
 </style>
 <body>
     <main>
@@ -52,17 +76,28 @@
 </body>
 <script> 
  'use strict';
+ /*
+    Const and let are not supported by E10 I Will use var for compatibility
+    chnaged Arrow functions to function for compatibility with older browsers 
+*/
+//  WAITS FOR THE WINDOW TO LOAD 
  window.addEventListener("load",function(){
+    //  ADDS A CLICK EVENT ON THE DOCUMENT
     document.addEventListener('click', function (event){
+        // GOES THOUGH THE EVENT TO CHECK THE TAG 
         if (event.target.tagName === "BUTTON"){
+            // CREATE A VARIABLE FOR THE ROW 
             var listHtml = "";
+            // USES A TERNARY OPERATOR TO SEE WHAT BUTTON ID IS CLICKED AND THEN GIVES THE VARIABLE ITS  RESPONSE
             var name = (event.target.id === "sayHello") ?  "Hello" :  "Goodbye";
             for (var index = 0; index < 5; index++) {
-                listHtml +="<div class= 'box'>"+name+"</div>".trim()
+                // APPENDS A ROW TO THE LIST VARIABLE
+                listHtml +="<div class= 'box'>"+name+"</div>".trim();
                 }
+            // ADDS THE LIST TO THE DOM 
             document.getElementById("rowArea").innerHTML = listHtml ;
         }
-    })
- })
+    });
+ });
 </script>
 </html>
