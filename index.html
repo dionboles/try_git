@@ -64,14 +64,14 @@
 </style>
 <body>
     <main>
-        <section class="rowSection">
+        <section class="rowSection" >
             <button id="sayHello" class="btnShodow">
                 Create Rows saying Hello
             </button>
             <button id="sayGoodbye" class="btnShodow">
                 Create Rows saying Goodbye
             </button>
-            <div id="rowArea"></div>
+            <ul id="rowArea"></ul>
         </section>
     </main>
 </body>
@@ -93,7 +93,7 @@
             var name = (event.target.id === "sayHello") ?  "Hello" :  "Goodbye";
             for (var index = 0; index < 5; index++) {
                 // APPENDS A ROW TO THE LIST VARIABLE
-                listHtml +="<div class= 'box'>"+name+"</div>".trim();
+                listHtml +="<li class= 'box'>"+name+"</li>".trim();
                 }
             // ADDS THE LIST TO THE DOM 
             document.getElementById("rowArea").innerHTML = listHtml ;
