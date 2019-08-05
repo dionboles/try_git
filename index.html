@@ -10,6 +10,7 @@
     *{
         margin: 0;
         padding: 0;
+        border: 0;
     }
     .btnShodow{
         border: 1px solid #ccc;
@@ -63,7 +64,7 @@
     }
 </style>
 <body>
-    
+
     <main>
         <section class="rowSection" >
             <button id="sayHello" class="btnShodow">
@@ -91,10 +92,10 @@
             // CREATE A VARIABLE FOR THE ROW 
             var listHtml = "";
             // USES A TERNARY OPERATOR TO SEE WHAT BUTTON ID IS CLICKED AND THEN GIVES THE VARIABLE ITS  RESPONSE
-            var name = (event.target.id === "sayHello") ?  "Hello" :  "Goodbye";
+            var say = (event.target.id === "sayHello") ?  "Hello" :  "Goodbye";
             for (var index = 0; index < 5; index++) {
                 // APPENDS A ROW TO THE LIST VARIABLE
-                listHtml +="<li class= 'box'>"+name+"</li>".trim();
+                listHtml +="<li class= 'box'>"+say+"</li>".trim();
                 }
             // ADDS THE LIST TO THE DOM 
             document.getElementById("rowArea").innerHTML = listHtml ;
